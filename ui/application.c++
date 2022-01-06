@@ -1,12 +1,5 @@
 #include "application.h++"
 
-int main(int argn,char** argv)
-{
-  Application();
-}
-
-
-
 bool Application::OnInit()
 {
     _frame = new Frame();
@@ -21,6 +14,7 @@ int Application::OnExit()
 Frame::Frame()
     : wxFrame(NULL, wxID_ANY, "Tentacle Wars")
 {
-
+  CreateStatusBar();
+  SetStatusText("Status text");
 }
 

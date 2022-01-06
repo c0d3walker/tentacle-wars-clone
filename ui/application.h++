@@ -20,4 +20,4 @@ private:
     Frame* _frame;
 };
 
-
+wxIMPLEMENT_APP(Application);
