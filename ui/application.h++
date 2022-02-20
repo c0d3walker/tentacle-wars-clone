@@ -4,6 +4,8 @@
     #include <wx/wx.h>
 #endif
 
+#ifndef APPLICATION_SETUP
+#define APPLICATION_SETUP
 
 class Frame : public wxFrame
 {
@@ -21,3 +23,9 @@ private:
 };
 
 wxIMPLEMENT_APP(Application);
+
+
+
+#endif // APPLICATION_SETUP
+
+
