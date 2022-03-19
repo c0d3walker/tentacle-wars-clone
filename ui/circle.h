@@ -1,21 +1,22 @@
-#include <wx/wx.h>
+#include "drawableComponent.h"
 
-#ifndef CIRCLE
-#define CIRCLE
+#ifndef _CELL_
+#define _CELL_
 
-class Circle : public wxPanel
+class Circle : public DrawableComponent
 {
 
 public:
-  Circle(wxWindow* parentWindow,int x,int y, int size);
+  Circle(int x,int y, int size);
   ~Circle();
   void setColour(wxColour color);
-  void paintEvent(wxPaintEvent & evt);
-  void paintNow();
-  void render(wxDC& dc);
-  void mouseMoved(wxMouseEvent& event);
-  void mouseDown(wxMouseEvent& event);
-  void mouseReleased(wxMouseEvent& event);
+  void drawComponent(wxDC& dc);
+  //void paintEvent(wxPaintEvent & evt);
+  //void paintNow();
+  //void render(wxDC& dc);
+  //void mouseMoved(wxMouseEvent& event);
+  //void mouseDown(wxMouseEvent& event);
+  //void mouseReleased(wxMouseEvent& event);
 
 
  //    void mouseWheelMoved(wxMouseEvent& event);
@@ -24,15 +25,15 @@ public:
  //    void keyPressed(wxKeyEvent& event);
  //    void keyReleased(wxKeyEvent& event);
     
-  DECLARE_EVENT_TABLE()
+//  DECLARE_EVENT_TABLE()
 
 private:
-  bool isTargetingActive;
+//  bool isTargetingActive;
   int x,y,size;
   wxColour color;
-  wxPoint* endPoint;
-  void printPosition(wxMouseEvent& event);
+//  wxPoint* endPoint;
+//  void printPosition(wxMouseEvent& event);
 };
-#endif // CIRCLE
+#endif // CELL
 
 

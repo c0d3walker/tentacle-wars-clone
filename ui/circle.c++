@@ -4,6 +4,7 @@
 #include <iostream>
 using namespace std;
 
+/*
 BEGIN_EVENT_TABLE(Circle, wxPanel)
  EVT_MOTION(Circle::mouseMoved)
  EVT_LEFT_DOWN(Circle::mouseDown)
@@ -28,12 +29,19 @@ Circle::Circle(wxWindow* parentWindow,int x, int y, int size)
 Circle::~Circle()
 {
   free(endPoint);
+}*/
+
+Circle::Circle(int x, int y, int size)
+{
+  this->size=size;
+  this->x=x;
+  this->y=y;
 }
 
 void Circle::setColour(wxColour colour){
   this->color=colour;
 }
-
+/*
 void Circle::printPosition(wxMouseEvent& event)
 {
   wxClientDC dc(this);
@@ -89,18 +97,17 @@ void Circle::paintNow()
     render(dc);
 }
 
-void Circle::render(wxDC&  dc)
+*/
+void Circle::drawComponent(wxDC& dc)
 {
-    wxSize size=GetSize();
-    int totalHeight = size.GetHeight() -4;
+    int totalHeight = size -4;
     int radius = totalHeight/2;
-    wxPoint circleCenter = wxPoint(radius+1, radius+1);
+    wxPoint circleCenter = wxPoint(radius+1+x, radius+1+y);
    
-    dc.SetBrush(color); // green filling
+    dc.SetBrush(color); 
     dc.SetPen( wxPen(wxColor(200,200,200), 3 ) ); 
     dc.DrawCircle(circleCenter, radius );
     
-
     wxFont font("arial");
     wxFont boldFont = font.Bold();
     wxSize letterSize =  boldFont.GetPixelSize();
@@ -108,12 +115,6 @@ void Circle::render(wxDC&  dc)
     wxString text("40");
     int length=text.length();
     
-    dc.DrawText("40", wxPoint(circleCenter.x-(length*letterSize.x)/2,circleCenter.y-letterSize.y/2)); 
+    dc.DrawText(to_string(size), wxPoint(circleCenter.x-(length*letterSize.x)/2,circleCenter.y-letterSize.y/2)); 
 
-  if(endPoint!=NULL)
-  {
-    dc.SetPen(wxPen(wxColor(255,255,0),5));
-    dc.DrawLine(circleCenter,*endPoint);
-  }
 }
-
