@@ -35,13 +35,13 @@ void LevelCanvas::paintNow()
 
 void LevelCanvas::render(wxDC& dc)
 {
-  //dc.DrawText("1001",wxPoint(50,50));
+  auto _components = level->getDrawableComponents();
   for(auto drawableElement = _components->begin(); drawableElement != _components->end(); drawableElement++){
     (*drawableElement)->drawComponent(dc);
   }
 }
 
-void LevelCanvas::setDrawableComponents(vector<DrawableComponent*>* components)
+void LevelCanvas::setLevel(Level* level)
 {
-  _components = components;
+  this->level=level;
 }

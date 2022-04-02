@@ -1,4 +1,5 @@
 #include "drawableComponent.h"
+#include "player.h"
 
 #ifndef _CELL_
 #define _CELL_
@@ -9,7 +10,8 @@ class Circle : public DrawableComponent
 public:
   Circle(int x,int y, int size);
   ~Circle();
-  void setColour(wxColour color);
+//  void setColour(wxColour color);
+  void setPlayer(Player* player);
   void drawComponent(wxDC& dc);
   //void paintEvent(wxPaintEvent & evt);
   //void paintNow();
@@ -31,6 +33,7 @@ private:
 //  bool isTargetingActive;
   int x,y,size;
   wxColour color;
+  Player* player;
 //  wxPoint* endPoint;
 //  void printPosition(wxMouseEvent& event);
 };

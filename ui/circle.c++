@@ -3,7 +3,6 @@
 #include <string>
 #include <iostream>
 using namespace std;
-
 /*
 BEGIN_EVENT_TABLE(Circle, wxPanel)
  EVT_MOTION(Circle::mouseMoved)
@@ -38,9 +37,14 @@ Circle::Circle(int x, int y, int size)
   this->y=y;
 }
 
-void Circle::setColour(wxColour colour){
-  this->color=colour;
+void Circle::setPlayer(Player* player)
+{
+  this->player=player;
 }
+
+/*void Circle::setColour(wxColour colour){
+  this->color=colour;
+}*/
 /*
 void Circle::printPosition(wxMouseEvent& event)
 {
@@ -104,6 +108,8 @@ void Circle::drawComponent(wxDC& dc)
     int radius = totalHeight/2;
     wxPoint circleCenter = wxPoint(radius+1+x, radius+1+y);
    
+    wxColour color=player==NULL?wxColour(150,150,150,255):player->getColor();
+
     dc.SetBrush(color); 
     dc.SetPen( wxPen(wxColor(200,200,200), 3 ) ); 
     dc.DrawCircle(circleCenter, radius );

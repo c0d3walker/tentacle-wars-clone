@@ -1,5 +1,6 @@
 #include <wx/wx.h>
 #include "drawableComponent.h"
+#include "level.h"
 #include <vector>
 
 #ifndef _LEVEL_CANVAS_
@@ -14,12 +15,12 @@ class LevelCanvas : public wxPanel
     void paintNow();
     void render(wxDC &dc);
     
-    void setDrawableComponents(vector<DrawableComponent*>* components);
+    void setLevel(Level* level);
 
     DECLARE_EVENT_TABLE()
   
   private:
-    vector<DrawableComponent*>* _components;    
+    Level* level;
 };
 
 #endif // _LEVEL_CANVAS_
