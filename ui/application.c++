@@ -1,21 +1,14 @@
 #include "application.h++"
 #include "levelCanvas.h"
-#include <vector>
-#include "circle.h"
-#include "level.h"
 using namespace std;
 
 bool Application::OnInit()
 {
-    _frame = new Frame();
-    _frame->Show(true);
+    frame = new Frame();
+    frame->Show(true);
     return true;
 }
-int Application::OnExit()
-{
-//    delete(_frame);
-    return true;
-}
+
 
 Frame::Frame()
     : wxFrame(NULL, wxID_ANY, "Tentacle Wars")
@@ -33,3 +26,6 @@ Frame::Frame()
 //  CreateStatusBar();
 //  SetStatusText("Status text");
 }
+
+
+

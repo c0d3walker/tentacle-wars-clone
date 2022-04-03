@@ -11,6 +11,7 @@ class LevelCanvas : public wxPanel
 {
   public:
     LevelCanvas(wxWindow* parent);
+    ~LevelCanvas();
     void paintEvent(wxPaintEvent &event);
     void paintNow();
     void render(wxDC &dc);

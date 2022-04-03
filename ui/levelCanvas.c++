@@ -21,6 +21,11 @@ LevelCanvas::LevelCanvas(wxWindow* parent) : wxPanel(parent, -1, wxPoint(0,0), w
   SetBackgroundColour(wxColor(50,50,50,255));
 }
 
+LevelCanvas::~LevelCanvas()
+{
+  delete level;
+}
+
 void LevelCanvas::paintEvent(wxPaintEvent &event)
 {
   wxPaintDC dc(this);
